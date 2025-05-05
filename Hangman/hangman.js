@@ -3,7 +3,7 @@ let displayed = [];
 let wrongGuesses = [];
 let attemptsLeft = 6;
 let gameStarted = false;
-
+window.onload = fetchWord;
 async function fetchWord() {
   if (gameStarted) return; // prevent re-fetching
   gameStarted = true;
@@ -58,4 +58,4 @@ function checkGameStatus() {
   }
 }
 
-window.onload = fetchWord;
+
