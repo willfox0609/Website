@@ -1,0 +1,14 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+  }
+  #wordDisplay {
+    font-size: 2em;
+    letter-spacing: 10px;
+  }
+  #letterInput {
+    width: 30px;
+    text-align: center;
+  }
+  
