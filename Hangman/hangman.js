@@ -2,23 +2,19 @@ let word = "";
 let displayed = [];
 let wrongGuesses = [];
 let attemptsLeft = 6;
-let gameStarted = false;
-window.onload = fetchWord;
-async function fetchWord() {
-  if (gameStarted) return; // prevent re-fetching
-  gameStarted = true;
 
+window.onload = async function () {
   try {
     const response = await fetch('/api/word');
     const text = await response.text();
     word = text.toUpperCase().trim();
     displayed = Array(word.length).fill('_');
     updateDisplay();
-  } catch (error) {
-    console.error("Error fetching word:", error);
-    document.getElementById('message').textContent = "Error fetching word.";
+  } catch (err) {
+    document.getElementById('message').textContent = "Error loading word.";
+    console.error(err);
   }
-}
+};
 
 function updateDisplay() {
   document.getElementById('wordDisplay').textContent = displayed.join(' ');
@@ -27,7 +23,7 @@ function updateDisplay() {
 }
 
 function guessLetter() {
-  if (!word) return;
+  if (!word || attemptsLeft <= 0 || !displayed.includes('_')) return;
 
   const input = document.getElementById('letterInput');
   const letter = input.value.toUpperCase();
@@ -39,11 +35,9 @@ function guessLetter() {
     word.split('').forEach((char, i) => {
       if (char === letter) displayed[i] = letter;
     });
-  } else {
-    if (!wrongGuesses.includes(letter)) {
-      wrongGuesses.push(letter);
-      attemptsLeft--;
-    }
+  } else if (!wrongGuesses.includes(letter)) {
+    wrongGuesses.push(letter);
+    attemptsLeft--;
   }
 
   updateDisplay();
@@ -57,5 +51,3 @@ function checkGameStatus() {
     document.getElementById('message').textContent = `💀 You lost! Word was: ${word}`;
   }
 }
-
-

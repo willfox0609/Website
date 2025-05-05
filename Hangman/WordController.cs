@@ -1,20 +1,24 @@
 using Microsoft.AspNetCore.Mvc;
 
-[ApiController]
-[Route("api/[controller]")]
-public class WordController : ControllerBase
+namespace YourNamespace.Controllers
 {
-    private static readonly string[] Words = 
+    [ApiController]
+    [Route("api/[controller]")]
+    public class WordController : ControllerBase
     {
-        "elephant", "hangman", "computer", "javascript", "program"
-    };
+        private static readonly string[] Words = new[]
+        {
+            "elephant", "hangman", "computer", "javascript", "program"
+        };
 
-    private static readonly Random Random = new();
+        private static readonly Random Random = new();
 
-    [HttpGet]
-    public string Get()
-    {
-        int index = Random.Next(Words.Length);
-        return Words[index];
+        [HttpGet]
+        public ActionResult<string> Get()
+        {
+            int index = Random.Next(Words.Length);
+            string word = Words[index];
+            return Ok(word);
+        }
     }
 }
