@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace YourNamespace.Controllers
+namespace YourAppNamespace.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -14,10 +14,9 @@ namespace YourNamespace.Controllers
         private static readonly Random Random = new();
 
         [HttpGet]
-        public ActionResult<string> Get()
+        public IActionResult GetWord()
         {
-            int index = Random.Next(Words.Length);
-            string word = Words[index];
+            string word = Words[Random.Next(Words.Length)];
             return Ok(word);
         }
     }
