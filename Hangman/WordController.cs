@@ -4,13 +4,17 @@ using Microsoft.AspNetCore.Mvc;
 [Route("api/[controller]")]
 public class WordController : ControllerBase
 {
-    private static readonly string[] Words = { "elephant", "hangman", "computer", "javascript", "program" };
-    private static readonly Random rnd = new Random();
+    private static readonly string[] Words = 
+    {
+        "elephant", "hangman", "computer", "javascript", "program"
+    };
+
+    private static readonly Random Random = new();
 
     [HttpGet]
     public string Get()
     {
-        int index = rnd.Next(Words.Length);
+        int index = Random.Next(Words.Length);
         return Words[index];
     }
 }

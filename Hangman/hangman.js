@@ -1,11 +1,12 @@
-let word = '';
+let word = "";
 let displayed = [];
 let wrongGuesses = [];
 let attemptsLeft = 6;
 
-async function loadWord() {
-  const res = await fetch('/api/word');
-  word = (await res.text()).toUpperCase();
+async function fetchWord() {
+  const response = await fetch('/api/word');
+  const text = await response.text();
+  word = text.toUpperCase();
   displayed = Array(word.length).fill('_');
   updateDisplay();
 }
@@ -45,4 +46,4 @@ function checkGameStatus() {
   }
 }
 
-loadWord();
+fetchWord();
