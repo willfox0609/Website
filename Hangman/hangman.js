@@ -43,7 +43,7 @@ function guessWord() {
   input.value = '';
   document.getElementById('message').textContent = '';
 
-  if (guess === word) {
+  if (guess == word) {
     displayed = word.split('');
     document.getElementById('message').textContent = '🎉 You won!';
   } else {
