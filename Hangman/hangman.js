@@ -1,11 +1,12 @@
-// Ensure the words.js is loaded before this file
-let word = words[Math.floor(Math.random() * words.length)].toUpperCase();
-
-let displayed = Array(word.length).fill('_');
+let word = "";
+let displayed = [];
 let wrongGuesses = [];
 let attemptsLeft = 6;
 
 window.onload = () => {
+  // Now that everything is loaded, including words.js, we can safely use `words`
+  word = words[Math.floor(Math.random() * words.length)].toUpperCase();
+  displayed = Array(word.length).fill('_');
   updateDisplay();
 };
 
