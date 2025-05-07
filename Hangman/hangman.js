@@ -35,6 +35,22 @@ function guessLetter() {
   checkGameStatus();
 }
 
+function guessWord() {
+  const input = document.getElementById('wordInput');
+  const guess = input.value.toUpperCase().trim();
+  input.value = '';
+
+  if (guess === word0) {
+    displayed = word.split('');
+    updateDisplay();
+    document.getElementById('message').textContent = '🎉 You won!';
+  } else {
+    attemptsLeft--;
+    updateDisplay();
+    checkGameStatus();
+  }
+}
+
 function checkGameStatus() {
   if (!displayed.includes('_')) {
     document.getElementById('message').textContent = '🎉 You won!';

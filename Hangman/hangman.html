@@ -11,8 +11,11 @@
   <p id="wordDisplay">_ _ _ _</p>
   <p>Wrong guesses: <span id="wrongGuesses"></span></p>
   <p>Attempts left: <span id="attempts">6</span></p>
-  <input type="text" id="letterInput" maxlength="1" />
-  <button onclick="guessLetter()">Guess</button>
+  <input type="text" id="letterInput" maxlength="1" placeholder="Guess a letter"/>
+  <button onclick="guessLetter()">Guess Letter</button>
+  <br><br>
+  <input type="text" id="wordInput" maxlength="1" placeholder="Guess a word"/>
+  <button onclick="guessWord()">Guess Word</button>
   <p id="message"></p>
   <br />
   <a href="../home.html" class="btn">Back to Home</a>
