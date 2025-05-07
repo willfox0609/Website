@@ -4,7 +4,6 @@ let wrongGuesses = [];
 let attemptsLeft = 6;
 
 window.onload = () => {
-  // Now that everything is loaded, including words.js, we can safely use `words`
   word = words[Math.floor(Math.random() * words.length)].toUpperCase();
   displayed = Array(word.length).fill('_');
   updateDisplay();
@@ -20,6 +19,7 @@ function guessLetter() {
   const input = document.getElementById('letterInput');
   const letter = input.value.toUpperCase();
   input.value = '';
+  document.getElementById('message').textContent = '';
 
   if (!letter.match(/^[A-Z]$/)) return;
 
@@ -30,6 +30,7 @@ function guessLetter() {
   } else if (!wrongGuesses.includes(letter)) {
     wrongGuesses.push(letter);
     attemptsLeft--;
+    document.getElementById('message').textContent = 'Incorrect guess, try again.';
   }
 
   updateDisplay();
@@ -40,16 +41,18 @@ function guessWord() {
   const input = document.getElementById('wordInput');
   const guess = input.value.toUpperCase().trim();
   input.value = '';
+  document.getElementById('message').textContent = '';
 
   if (guess === word) {
     displayed = word.split('');
-    updateDisplay();
     document.getElementById('message').textContent = '🎉 You won!';
   } else {
     attemptsLeft--;
-    updateDisplay();
-    checkGameStatus();
+    document.getElementById('message').textContent = 'Incorrect guess, try again.';
   }
+
+  updateDisplay();
+  checkGameStatus();
 }
 
 function checkGameStatus() {
