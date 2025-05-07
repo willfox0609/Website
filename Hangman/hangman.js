@@ -40,7 +40,7 @@ function guessWord() {
   const guess = input.value.toUpperCase().trim();
   input.value = '';
 
-  if (guess === word0) {
+  if (guess === word) {
     displayed = word.split('');
     updateDisplay();
     document.getElementById('message').textContent = '🎉 You won!';
