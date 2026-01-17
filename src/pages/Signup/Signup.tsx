@@ -21,7 +21,7 @@ export default function Signup() {
       isLoggedIn: true,
     });
 
-    navigate("/settings");
+    navigate("/");
   };
 
   return (
