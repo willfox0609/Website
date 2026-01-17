@@ -34,7 +34,7 @@ export default function Settings() {
     localStorage.removeItem("appSettings");
 
     // Redirect to signup or login
-    navigate("/signup");
+    navigate("/");
   };
 
   return (

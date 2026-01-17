@@ -1,8 +1,13 @@
-// import Button from "../../components/Button/Button";
+import GodImage from "../../assets/God.png";
+import music from "../../music/home.mp3";
 
 export default function Home() {
   return (
     <div className="container mt-5">
+
+      {/* Background music */}
+      <audio src={music} autoPlay loop />
+
       <h1 className="text-center mb-4">Yur fat</h1>
 
       <div className="row">
@@ -10,14 +15,19 @@ export default function Home() {
           <div className="p-4 border rounded shadow-sm">
             <h4>Lol</h4>
             <p>bozo.</p>
-            {/*<Button label="Click Me" />*/}
+
+            {/* Image below bozo */}
+            <img
+              src={GodImage}
+              alt="God"
+              className="img-fluid mt-3 rounded"
+            />
           </div>
         </div>
 
         <div className="col-md-6 mb-3">
           <div className="p-4 border rounded shadow-sm">
             <h4>67</h4>
-            {/* <p>Bootstrap grid makes layout effortless.</p> */}
           </div>
         </div>
       </div>

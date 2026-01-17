@@ -28,7 +28,7 @@ const defaultSettings: Settings = {
   pushNotif: true,
 
   accountId: "",
-  memberSince: "January 2024",
+  memberSince: "",
 
   isLoggedIn: false,
 };
