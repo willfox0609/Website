@@ -10,6 +10,8 @@ type Settings = {
 
   accountId: string;
   memberSince: string;
+
+  isLoggedIn: boolean;
 };
 
 type SettingsContextType = {
@@ -26,7 +28,9 @@ const defaultSettings: Settings = {
   pushNotif: true,
 
   accountId: "",
-  memberSince: "",
+  memberSince: "January 2024",
+
+  isLoggedIn: false,
 };
 
 export const SettingsContext = createContext<SettingsContextType>({
@@ -51,7 +55,7 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
   }, [settings]);
 
   function updateSettings(updates: Partial<Settings>) {
-    setSettings(prev => ({ ...prev, ...updates }));
+    setSettings((prev) => ({ ...prev, ...updates }));
   }
 
   return (
