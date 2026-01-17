@@ -1,12 +1,9 @@
 import GodImage from "../../assets/God.png";
-import music from "../../music/home.mp3";
 
 export default function Home() {
   return (
     <div className="container mt-5">
-
       {/* Background music */}
-      <audio src={music} autoPlay loop />
 
       <h1 className="text-center mb-4">Yur fat</h1>
 
@@ -17,11 +14,7 @@ export default function Home() {
             <p>bozo.</p>
 
             {/* Image below bozo */}
-            <img
-              src={GodImage}
-              alt="God"
-              className="img-fluid mt-3 rounded"
-            />
+            <img src={GodImage} alt="God" className="img-fluid mt-3 rounded" />
           </div>
         </div>
 
