@@ -1,4 +1,4 @@
-import GodImage from "../../assets/God.png";
+import GodImage from "../../assets/God.jpeg";
 
 export default function Home() {
   return (
