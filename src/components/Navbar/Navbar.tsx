@@ -8,12 +8,12 @@ export default function Navbar() {
 
   const handleLogout = () => {
     updateSettings({ isLoggedIn: false });
-    navigate("/login");
+    navigate("/");
   };
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-      <Link className="navbar-brand" to="/">
+      <Link className="navbar-brand" to="/home">
         My App
       </Link>
 

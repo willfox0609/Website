@@ -19,7 +19,7 @@ export default function Login() {
 
     if (inputId.trim() === settings.accountId.trim()) {
       updateSettings({ isLoggedIn: true });
-      navigate("/");
+      navigate("/home");
     } else {
       setError("Invalid Account ID");
     }

@@ -26,7 +26,7 @@ export default function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
 
         <Route
           path="/settings"
@@ -38,7 +38,7 @@ export default function App() {
         />
 
         <Route
-          path="/"
+          path="/home"
           element={
             <ProtectedRoute>
               <Home />

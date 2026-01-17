@@ -21,7 +21,7 @@ export default function Signup() {
       isLoggedIn: true,
     });
 
-    navigate("/");
+    navigate("/home");
   };
 
   return (
@@ -64,7 +64,7 @@ export default function Signup() {
       </button>
 
       <div className="text-center mt-3">
-        <button className="btn btn-link" onClick={() => navigate("/login")}>
+        <button className="btn btn-link" onClick={() => navigate("/")}>
           Already have an account? Log in
         </button>
       </div>
